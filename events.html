@@ -3,31 +3,196 @@
 
 <head>
 
-<title>Events</title>
+    <title>Events - Student Hub Portal</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #1565c0, #42a5f5);
+            color: white;
+        }
+
+        /* Header */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: rgba(0, 0, 0, 0.20);
+        }
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        /* Navigation */
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* Main Container */
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 70px auto;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading */
+
+        .container h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        /* Event List */
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+
+            font-size: 19px;
+
+            transition: 0.3s;
+        }
+
+        li:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(8px);
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.20);
+            margin-top: 50px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin-left: 8px;
+            }
+
+            .container {
+                width: 92%;
+                padding: 25px;
+                margin: 40px auto;
+            }
+
+            .container h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
+    <!-- Header -->
 
-<h1>Upcoming Events</h1>
+    <header>
 
-<ul>
+        <h1>Student Hub Portal</h1>
 
-<li>Hackathon - 20 July</li>
+        <nav>
 
-<li>Sports Week</li>
+            <a href="index.html">Home</a>
 
-<li>Cultural Fest</li>
+            <a href="register.html">Register</a>
 
-<li>Placement Workshop</li>
+            <a href="login.html">Login</a>
 
-</ul>
+            <a href="dashboard.html">Dashboard</a>
 
-</div>
+            <a href="profile.html">Profile</a>
+
+            <a href="events.html">Events</a>
+
+            <a href="attendance.html">Attendance</a>
+
+            <a href="result.html">Results</a>
+
+            <a href="faq.html">FAQ</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Events Section -->
+
+    <div class="container">
+
+        <h2>Upcoming Events</h2>
+
+        <ul>
+
+            <li>Hackathon - 20 July</li>
+
+            <li>Sports Week</li>
+
+            <li>Cultural Fest</li>
+
+            <li>Placement Workshop</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Student Hub Portal | All Rights Reserved</p>
+
+    </footer>
 
 </body>
 

@@ -2,40 +2,247 @@
 <html>
 
 <head>
-<title>Register</title>
+    <title>Register - Student Hub Portal</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #1565c0, #42a5f5);
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .form-box {
+            width: 400px;
+            max-width: 90%;
+            margin: 70px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .form-box h2 {
+            font-size: 38px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        input {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background: white;
+            color: #1565c0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: yellow;
+        }
+
+        .error {
+            color: yellow;
+            font-size: 14px;
+        }
+
+        .success {
+            color: #00ff88;
+            font-size: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #121212, #212121, #333333);
+        }
+
+        body.dark header {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        body.dark .form-box {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark input {
+            background: #333;
+            color: white;
+        }
+
+        body.dark input::placeholder {
+            color: #ccc;
+        }
+
+        body.dark input[type="submit"] {
+            background: #1565c0;
+            color: white;
+        }
+
+        body.dark footer {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #themeButton {
+            margin-left: 20px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<div class="form-box">
+    <header>
 
-<h2>Register</h2>
+        <h1>Student Hub Portal</h1>
 
-<form>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
 
-<input type="text" placeholder="Full Name">
+            <button id="themeButton" onclick="changeTheme()">
+                🌙 Dark Mode
+            </button>
+        </nav>
 
+    </header>
 
-<input type="email" placeholder="Email">
+    <div class="form-box">
 
-<input type="password" placeholder="Password">
+        <h2>Register</h2>
 
-<input type="submit" value="Register">
+        <form onsubmit="return validateForm()">
 
-</form>
+            <input
+                type="text"
+                id="name"
+                placeholder="Full Name"
+            >
 
-<p>
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+            >
 
-Already have an account?
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="Mobile Number"
+            >
 
-<a href="dashboard.html">Login</a>
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
 
-</p>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+            >
 
-</div>
+            <select id="course">
+                <option value="">Select Course</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+                <option value="Mechanical">Mechanical</option>
+            </select>
+
+            <select id="year">
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+            </select>
+
+            <div>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+                <input type="radio" name="gender" value="Other"> Other
+            </div>
+
+            <div>
+                <input type="checkbox" id="terms">
+                I accept the terms and conditions
+            </div>
+
+            <span id="error" class="error"></span>
+
+            <span id="success" class="success"></span>
+
+            <input
+                type="submit"
+                value="Register"
+            >
+
+        </form>
+
+        <p>
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+    </div>
+
+    <footer>
+        <p>Student Hub Portal</p>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 

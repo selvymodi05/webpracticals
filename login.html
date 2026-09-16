@@ -1,22 +1,315 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>StudentHub - Login</title>
-    </head>
-    <body>
-        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: aqua; text-align: center;">StudentHub - Login</h1>
-        <table style="margin: 0 auto; border: 1px solid #0a0a0a; padding: 20px; background-color: #f9f9f9;"align="center">
-            <tr>
-                <td><label for="username" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(15, 15, 15);text-align:center">Username:</label></td>
-                <td><input type="text" id="username" name="username" required;text-align:center></td>
-            </tr>
-            <tr>
-                <td><label for="password">Password:</label></td>
-                <td><input type="password" id="password" name="password" required></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="Login"></td>
-            </tr>
-        </table>
-        <a href="menu.html" style="display: block; text-align: center; margin-top: 20px;">Go to Menu Page</a>
-    </body>
+
+<head>
+
+    <title>StudentHub - Login</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #1565c0, #42a5f5);
+            color: white;
+        }
+
+        /* Header */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: rgba(0, 0, 0, 0.20);
+        }
+
+        header h2 {
+            font-size: 30px;
+        }
+
+        /* Navigation */
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* Login Box */
+
+        .login-box {
+            width: 420px;
+            max-width: 90%;
+            margin: 70px auto;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+            text-align: center;
+        }
+
+        /* Heading */
+
+        .login-box h1 {
+            font-size: 38px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        /* Table */
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 12px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        /* Input */
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 8px;
+
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* Login Button */
+
+        input[type="submit"] {
+            padding: 13px 35px;
+
+            border: none;
+            border-radius: 30px;
+
+            background-color: white;
+            color: #1565c0;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: yellow;
+            transform: scale(1.05);
+        }
+
+        /* Menu Link */
+
+        .menu-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 18px;
+        }
+
+        .menu-link:hover {
+            color: yellow;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.20);
+            margin-top: 50px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            header h2 {
+                font-size: 24px;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin-left: 8px;
+            }
+
+            .login-box {
+                margin: 40px auto;
+                padding: 25px;
+            }
+
+            .login-box h1 {
+                font-size: 30px;
+            }
+
+            td {
+                display: block;
+                width: 100%;
+                padding: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header>
+
+        <h2>Student Hub Portal</h2>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="register.html">Register</a>
+
+            <a href="login.html">Login</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="events.html">Events</a>
+
+            <a href="attendance.html">Attendance</a>
+
+            <a href="result.html">Results</a>
+
+            <a href="faq.html">FAQ</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Login Form -->
+
+    <div class="login-box">
+
+        <h1>StudentHub - Login</h1>
+
+        <form action="dashboard.html">
+
+            <table>
+
+                <tr>
+
+                    <td>
+                        <label for="username">
+                            Username:
+                        </label>
+                    </td>
+
+                    <td>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                        >
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        <label for="password">
+                            Password:
+                        </label>
+                    </td>
+
+                    <td>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                        >
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td colspan="2">
+
+                        <input
+                            type="submit"
+                            value="Login"
+                        >
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </form>
+
+
+        <a href="menu.html" class="menu-link">
+            Go to Menu Page
+        </a>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Student Hub Portal | All Rights Reserved</p>
+
+    </footer>
+     <script src="script.js"></script>
+
+
+</body>
+
 </html>

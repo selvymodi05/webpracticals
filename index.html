@@ -2,42 +2,121 @@
 <html>
 <head>
     <title>Student Hub Portal</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0d47a1;
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .logo h1 {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .hero {
+            padding: 100px 20px;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        button {
+            background-color: white;
+            color: #1565c0;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+        }
+
+        footer {
+            background-color: #0d47a1;
+            padding: 15px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<h1>Student Hub Portal</h1>
+    <header>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="register.html">Register</a>
-<a href="dashboard.html">Dashboard</a>
-<a href="profile.html">Profile</a>
-<a href="events.html">Events</a>
-<a href="attendance.html">Attendance</a>
-<a href="result.html">Results</a>
-<a href="faq.html">FAQ</a>
-</nav>
+        <div class="logo">
 
-</header>
+            <img src="images/logo.jpg" alt="Logo">
 
-<div class="container">
+            <h1>Student Hub Portal</h1>
 
-<h2>Welcome to Student Hub Portal</h2>
+        </div>
 
-<p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="events.html">Events</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="result.html">Results</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
 
-One place for Attendance, Results, Events and Student Information.
+    </header>
 
-</p>
+    <section class="hero">
+i
+        <h2>Welcome to Student Hub Portal</h2>
 
-<a href="register.html">
-<button>Get Started</button>
-</a>
+        <p>
+            Manage your attendance, academic results,
+            profile, events and important information
+            in one place.
+        </p>
 
-</div>
+        <a href="register.html">
+            <button>Get Started</button>
+        </a>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Student Hub Portal</p>
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CHARUSAT Club Showcase</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        .clubs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: white;
+            width: 30%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 220px;
+            height: 150px;
+            object-fit: cover;
+            padding: 5px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CHARUSAT</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="">Clubs</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Club Information -->
+    <h2 style="text-align:center;">Our Clubs</h2>
+
+    <section class="clubs" id="clubs">
+
+        <div class="card">
+            <img src="https://picsum.photos/300/150?random=1">
+            <h2>Technical Club</h2>
+            <p>Learn technology and develop innovative projects.</p>
+            <button>View Details</button>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/150?random=2">
+            <h2>Coding Club</h2>
+            <p>Improve programming skills through coding activities.</p>
+            <button>View Details</button>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/150?random=3">
+            <h2>Robotics Club</h2>
+            <p>Build robots and explore robotics technology.</p>
+            <button>View Details</button>
+        </div>
+
+    </section>
+
+    <!-- Gallery -->
+    <h2 style="text-align:center;">Club Gallery</h2>
+
+    <section class="gallery" id="gallery">
+        <img src="C:\Users\Admin\OneDrive\Desktop\webcie">
+        <img src="https://picsum.photos/220/150?random=5">
+        <img src="https://picsum.photos/220/150?random=6">
+        <img src="https://picsum.photos/220/150?random=7">
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>CHARUSAT, Anand</p>
+        <p>College Club Activities – 2026</p>
+    </footer>
+
+</body>
+</html>
+```

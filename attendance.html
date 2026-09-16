@@ -3,71 +3,251 @@
 
 <head>
 
-<title>Attendance</title>
+    <title>Attendance - Student Hub Portal</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #1565c0, #42a5f5);
+            color: white;
+        }
+
+        /* Header */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: rgba(0, 0, 0, 0.20);
+        }
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        /* Navigation */
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        /* Main Container */
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 70px auto;
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading */
+
+        .container h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 35px;
+        }
+
+        /* Table */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 18px;
+            font-size: 20px;
+        }
+
+        td {
+            padding: 18px;
+            text-align: center;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        tr {
+            transition: 0.3s;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.20);
+            margin-top: 50px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin-left: 8px;
+            }
+
+            .container {
+                width: 92%;
+                padding: 25px;
+                margin: 40px auto;
+            }
+
+            .container h2 {
+                font-size: 32px;
+            }
+
+            th,
+            td {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
+    <!-- Header -->
 
-<h1>Attendance</h1>
+    <header>
 
-<table>
+        <h1>Student Hub Portal</h1>
 
-<tr>
+        <nav>
 
-<th>Subject</th>
+            <a href="index.html">Home</a>
 
-<th>Attendance</th>
+            <a href="register.html">Register</a>
 
-</tr>
+            <a href="login.html">Login</a>
 
-<tr>
+            <a href="dashboard.html">Dashboard</a>
 
-<td>ITU201</td>
+            <a href="profile.html">Profile</a>
 
-<td>90%</td>
+            <a href="events.html">Events</a>
 
-</tr>
+            <a href="attendance.html">Attendance</a>
 
-<tr>
+            <a href="result.html">Results</a>
 
-<td>CSU201</td>
+            <a href="faq.html">FAQ</a>
 
-<td>85%</td>
+        </nav>
 
-</tr>
+    </header>
 
-<tr>
 
-<td>ITU203</td>
+    <!-- Attendance Section -->
 
-<td>88%</td>
+    <div class="container">
 
-</tr>
+        <h2>Attendance</h2>
 
-<tr>
+        <table>
 
-<td>CEU203</td>
+            <tr>
 
-<td>80%</td>
+                <th>Subject</th>
 
-</tr>
+                <th>Attendance</th>
 
-<tr>
+            </tr>
 
-<td>MSUD203</td>
+            <tr>
 
-<td>95%</td>
+                <td>ITU201</td>
 
-</tr>
+                <td>90%</td>
 
-</table>
+            </tr>
 
-</div>
+            <tr>
+
+                <td>CSU201</td>
+
+                <td>85%</td>
+
+            </tr>
+
+            <tr>
+
+                <td>ITU203</td>
+
+                <td>88%</td>
+
+            </tr>
+
+            <tr>
+
+                <td>CEU203</td>
+
+                <td>80%</td>
+
+            </tr>
+
+            <tr>
+
+                <td>MSUD203</td>
+
+                <td>95%</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Student Hub Portal | All Rights Reserved</p>
+
+    </footer>
 
 </body>
 
