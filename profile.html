@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -20,8 +21,6 @@
             color: white;
         }
 
-        /* Header */
-
         header {
             display: flex;
             justify-content: space-between;
@@ -34,8 +33,6 @@
             font-size: 30px;
         }
 
-        /* Navigation */
-
         nav a {
             color: white;
             text-decoration: none;
@@ -47,52 +44,106 @@
             color: yellow;
         }
 
-        /* Main Container */
-
         .container {
-            width: 80%;
-            max-width: 800px;
-            margin: 70px auto;
-            padding: 40px;
-
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 35px;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
-
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
-
-        /* Heading */
 
         .container h2 {
             text-align: center;
             font-size: 42px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        /* Profile Table */
+        .controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        input,
+        select,
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        select {
+            min-width: 170px;
+        }
+
+        button {
+            background: white;
+            color: #0d47a1;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: yellow;
+        }
+
+        #message {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 750px;
         }
 
+        th,
         td {
-            padding: 18px;
-            font-size: 18px;
+            padding: 14px;
+            font-size: 16px;
+            text-align: left;
             border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.3);
         }
 
         td:first-child {
             font-weight: bold;
-            background: rgba(0, 0, 0, 0.15);
-            width: 40%;
         }
 
         tr:hover {
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Footer */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        #pageNumber {
+            font-size: 17px;
+            font-weight: bold;
+        }
 
         footer {
             text-align: center;
@@ -100,8 +151,6 @@
             background: rgba(0, 0, 0, 0.20);
             margin-top: 50px;
         }
-
-        /* Mobile */
 
         @media (max-width: 700px) {
 
@@ -111,24 +160,34 @@
                 padding: 20px;
             }
 
+            nav {
+                text-align: center;
+            }
+
             nav a {
+                display: inline-block;
                 font-size: 14px;
-                margin-left: 8px;
+                margin: 5px;
             }
 
             .container {
-                width: 92%;
-                padding: 25px;
-                margin: 40px auto;
+                width: 94%;
+                padding: 20px;
+                margin: 35px auto;
             }
 
             .container h2 {
-                font-size: 32px;
+                font-size: 30px;
             }
 
-            td {
-                padding: 12px;
-                font-size: 15px;
+            .controls {
+                flex-direction: column;
+            }
+
+            input,
+            select,
+            button {
+                width: 100%;
             }
 
         }
@@ -137,85 +196,109 @@
 
 </head>
 
-
 <body>
-
-    <!-- Header -->
 
     <header>
 
         <h1>Student Hub Portal</h1>
 
         <nav>
-
             <a href="index.html">Home</a>
-
             <a href="register.html">Register</a>
-
             <a href="login.html">Login</a>
-
             <a href="dashboard.html">Dashboard</a>
-
             <a href="profile.html">Profile</a>
-
             <a href="events.html">Events</a>
-
             <a href="attendance.html">Attendance</a>
-
             <a href="result.html">Results</a>
-
             <a href="faq.html">FAQ</a>
-
         </nav>
 
     </header>
 
-
-    <!-- Profile Section -->
-
     <div class="container">
 
-        <h2>Student Profile</h2>
+        <h2>Student Profiles</h2>
 
-        <table>
+        <p id="message">Loading student profiles...</p>
 
-            <tr>
-                <td>Name</td>
-                <td>Selvy Modi</td>
-            </tr>
+        <div class="controls">
 
-            <tr>
-                <td>Enrollment</td>
-                <td>25DCS060</td>
-            </tr>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by name, enrollment, or department"
+            >
 
-            <tr>
-                <td>Department</td>
-                <td>CSE</td>
-            </tr>
+            <select id="departmentFilter">
 
-            <tr>
-                <td>Semester</td>
-                <td>3</td>
-            </tr>
+                <option value="all">All Departments</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
 
-            <tr>
-                <td>College</td>
-                <td>DEPSTAR</td>
-            </tr>
+            </select>
 
-        </table>
+            <select id="sortSelect">
+
+                <option value="default">Sort By</option>
+                <option value="nameAsc">Name A-Z</option>
+                <option value="nameDesc">Name Z-A</option>
+                <option value="semesterAsc">Semester Low-High</option>
+                <option value="semesterDesc">Semester High-Low</option>
+
+            </select>
+
+            <button id="resetButton">Reset</button>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Enrollment</th>
+                        <th>Department</th>
+                        <th>Semester</th>
+                        <th>College</th>
+                        <th>Email</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="profileTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="pagination">
+
+            <button id="previousButton">Previous</button>
+
+            <span id="pageNumber">Page 1</span>
+
+            <button id="nextButton">Next</button>
+
+        </div>
 
     </div>
-
-
-    <!-- Footer -->
 
     <footer>
 
         <p>© 2026 Student Hub Portal | All Rights Reserved</p>
 
     </footer>
+
+    <script src="js/api.js"></script>
+<script src="js/profile.js"></script>
+<script src="app.js"></script>
 
 </body>
 
