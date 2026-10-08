@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register - Student Hub Portal</title>
+
+  <style>
+
+    /* =========================================
+       RESET
+    ========================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        font-family:
+            'Gill Sans',
+            'Gill Sans MT',
+            Calibri,
+            'Trebuchet MS',
+            sans-serif;
+    }
+
+
+    /* =========================================
+       LIGHT THEME
+    ========================================== */
+
+    body {
+
+        min-height: 100vh;
+
+        background: linear-gradient(
+            135deg,
+            #fffaf5,
+            #f5efff,
+            #fceef5,
+            #eef7ff
+        );
+
+        color: #34313d;
+
+        transition:
+            background 0.5s ease,
+            color 0.5s ease;
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================== */
+
+    header {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 18px 50px;
+
+        background: rgba(255, 255, 255, 0.68);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        border-bottom:
+            1px solid rgba(120, 100, 140, 0.12);
+
+        box-shadow:
+            0 5px 25px rgba(70, 50, 90, 0.07);
+
+        transition: 0.5s ease;
+    }
+
+
+    header h1 {
+
+        font-size: 30px;
+
+        color: #5d5066;
+
+        transition: 0.4s ease;
+    }
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================== */
+
+    nav {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    nav a {
+
+        color: #5d5066;
+
+        text-decoration: none;
+
+        margin-left: 20px;
+
+        font-size: 18px;
+
+        transition: 0.3s ease;
+    }
+
+
+    nav a:hover {
+
+        color: #a4779d;
+
+        transform: translateX(5px);
+    }
+
+
+    /* =========================================
+       DARK / LIGHT BUTTON
+    ========================================== */
+
+    #themeButton {
+
+        margin-left: 20px;
+
+        padding: 9px 16px;
+
+        border: none;
+
+        border-radius: 25px;
+
+        cursor: pointer;
+
+        background:
+            linear-gradient(
+                135deg,
+                #b99ac4,
+                #d5a6b9
+            );
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        box-shadow:
+            0 5px 15px rgba(170, 130, 165, 0.20);
+
+        transition: 0.3s ease;
+    }
+
+
+    #themeButton:hover {
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 8px 18px rgba(170, 130, 165, 0.30);
+    }
+
+
+    /* =========================================
+       FORM BOX
+    ========================================== */
+
+    .form-box {
+
+        width: 400px;
+
+        max-width: 90%;
+
+        margin: 70px auto;
+
+        padding: 40px;
+
+        background:
+            rgba(255, 255, 255, 0.72);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.85);
+
+        border-radius: 22px;
+
+        text-align: center;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        box-shadow:
+            0 15px 40px rgba(92, 73, 110, 0.12);
+
+        transition:
+            background 0.5s ease,
+            transform 0.4s ease,
+            box-shadow 0.4s ease;
+    }
+
+
+    /* =========================================
+       SLIDING WINDOW EFFECT
+    ========================================== */
+
+    .form-box:hover {
+
+        transform: translateX(8px);
+
+        box-shadow:
+            0 18px 45px rgba(92, 73, 110, 0.16);
+    }
+
+
+    .form-box h2 {
+
+        font-size: 38px;
+
+        margin-bottom: 30px;
+
+        color: #51465b;
+    }
+
+
+    /* =========================================
+       FORM
+    ========================================== */
+
+    form {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    /* =========================================
+       INPUT
+    ========================================== */
+
+    input,
+    select {
+
+        padding: 14px;
+
+        border:
+            1px solid #e3dce8;
+
+        border-radius: 10px;
+
+        background:
+            rgba(255, 255, 255, 0.85);
+
+        color: #51465b;
+
+        font-size: 16px;
+
+        outline: none;
+
+        transition:
+            0.3s ease;
+    }
+
+
+    input:focus,
+    select:focus {
+
+        border-color: #c5a8c7;
+
+        box-shadow:
+            0 0 0 3px rgba(197, 168, 199, 0.15);
+
+        background: white;
+    }
+
+
+    input::placeholder {
+
+        color: #aaa1af;
+    }
+
+
+    select {
+        width: 100%;
+        cursor: pointer;
+    }
+
+
+    .radio-group,
+    .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        color: #51465b;
+        font-size: 15px;
+    }
+
+
+    .radio-group label,
+    .checkbox-group label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+
+    /* =========================================
+       SUBMIT BUTTON
+    ========================================== */
+
+    input[type="submit"] {
+
+        background:
+            linear-gradient(
+                135deg,
+                #b99ac4,
+                #d5a6b9
+            );
+
+        color: white;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        border: none;
+
+        box-shadow:
+            0 6px 15px rgba(170, 130, 165, 0.20);
+
+        transition: 0.3s ease;
+    }
+
+
+    input[type="submit"]:hover {
+
+        transform: translateY(-3px);
+
+        background:
+            linear-gradient(
+                135deg,
+                #aa8ab7,
+                #ca91a9
+            );
+
+        box-shadow:
+            0 10px 20px rgba(170, 130, 165, 0.30);
+    }
+
+
+    /* =========================================
+       ERROR / SUCCESS
+    ========================================== */
+
+    .error {
+
+        color: #b56b78;
+
+        font-size: 14px;
+    }
+
+
+    .success {
+
+        color: #668d76;
+
+        font-size: 15px;
+    }
+
+
+    /* =========================================
+       TABLE ROW SLIDING EFFECT
+    ========================================== */
+
+    tr {
+
+        transition:
+            transform 0.4s ease,
+            background 0.4s ease,
+            box-shadow 0.4s ease;
+    }
+
+
+    tr:hover {
+
+        background:
+            rgba(248, 239, 250, 0.80);
+
+        transform:
+            translateX(8px);
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================== */
+
+    footer {
+
+        text-align: center;
+
+        padding: 20px;
+
+        background:
+            rgba(255, 255, 255, 0.55);
+
+        color: #756a7d;
+
+        border-top:
+            1px solid rgba(120, 100, 140, 0.08);
+
+        margin-top: 50px;
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
+        transition: 0.5s ease;
+    }
+
+
+    /* =========================================
+       DARK MODE
+    ========================================== */
+
+    body.dark {
+
+        background:
+            linear-gradient(
+                135deg,
+                #17131b,
+                #211c27,
+                #29222f
+            );
+
+        color: #eee6f2;
+    }
+
+
+    body.dark header {
+
+        background:
+            rgba(25, 20, 30, 0.82);
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.08);
+    }
+
+
+    body.dark header h1 {
+
+        color: #eaddeb;
+    }
+
+
+    body.dark nav a {
+
+        color: #ded2e3;
+    }
+
+
+    body.dark nav a:hover {
+
+        color: #d7abc9;
+    }
+
+
+    body.dark .form-box {
+
+        background:
+            rgba(30, 25, 36, 0.80);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.08);
+
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.35);
+    }
+
+
+    body.dark .form-box h2 {
+
+        color: #eaddeb;
+    }
+
+
+    body.dark input,
+    body.dark select {
+
+        background:
+            rgba(50, 43, 57, 0.90);
+
+        border-color:
+            rgba(255, 255, 255, 0.10);
+
+        color: #f3edf5;
+    }
+
+
+    body.dark input::placeholder {
+
+        color: #bdb1c4;
+    }
+
+
+    body.dark input:focus,
+    body.dark select:focus {
+
+        border-color: #c5a8c7;
+
+        background: #38303e;
+    }
+
+
+    body.dark footer {
+
+        background:
+            rgba(20, 17, 24, 0.80);
+
+        color: #c8bdce;
+    }
+
+
+    body.dark tr:hover {
+
+        background:
+            rgba(150, 115, 155, 0.15);
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================== */
+
+    @media (max-width: 700px) {
+
+        header {
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            padding: 20px;
+        }
+
+
+        header h1 {
+
+            font-size: 25px;
+        }
+
+
+        nav {
+
+            text-align: center;
+        }
+
+
+        nav a {
+
+            display: inline-block;
+
+            font-size: 14px;
+
+            margin: 5px;
+        }
+
+
+        #themeButton {
+
+            margin: 8px 0 0;
+
+            padding: 8px 14px;
+        }
+
+
+        .form-box {
+
+            margin: 40px auto;
+
+            padding: 25px;
+        }
+
+
+        .form-box h2 {
+
+            font-size: 30px;
+        }
+
+
+        /* Smaller sliding effect on mobile */
+
+        .form-box:hover {
+
+            transform: translateX(5px);
+        }
+
+
+        tr:hover {
+
+            transform: translateX(4px);
+        }
+
+    }
+</style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Student Hub Portal</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+
+           
+            <button id="themeButton">🌙 Dark Mode</button>
+        </nav>
+
+    </header>
+
+    <div class="form-box">
+
+        <h2>Register</h2>
+
+        <form action="register.php" method="POST" onsubmit="return validateForm()">
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Full Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+                placeholder="Mobile Number"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <input
+                type="password"
+                id="confirmPassword"
+                name="confirm_password"
+                placeholder="Confirm Password"
+                required
+            >
+
+            <select id="course" name="course" required>
+                <option value="">Select Course</option>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+                <option value="Mechanical">Mechanical</option>
+            </select>
+
+            <select id="year" name="year" required>
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+            </select>
+
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="Male"> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="terms" name="terms"> I agree to the terms</label>
+            </div>
+
+            <span id="error" class="error" aria-live="polite"></span>
+
+            <span id="success" class="success" aria-live="polite"></span>
+
+            <input
+                type="submit"
+                value="Register"
+            >
+
+        </form>
+
+        <p>
+           
+            <a href="login.html">Login</a>
+        </p>
+
+    </div>
+
+    <footer>
+        <p>Student Hub Portal</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

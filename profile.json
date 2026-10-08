@@ -1,0 +1,67 @@
+
+[
+    {
+        "name": "Selvy Modi",
+        "enrollment": "25DCS060",
+        "department": "CSE",
+        "semester": 3,
+        "college": "DEPSTAR",
+        "email": "selvy@charusat.edu.in"
+    },
+    {
+        "name": "Aarav Patel",
+        "enrollment": "25DCS061",
+        "department": "CSE",
+        "semester": 3,
+        "college": "DEPSTAR",
+        "email": "aarav@charusat.edu.in"
+    },
+    {
+        "name": "Diya Shah",
+        "enrollment": "25DCS062",
+        "department": "IT",
+        "semester": 3,
+        "college": "DEPSTAR",
+        "email": "diya@charusat.edu.in"
+    },
+    {
+        "name": "Riya Mehta",
+        "enrollment": "25DCS063",
+        "department": "CSE",
+        "semester": 3,
+        "college": "DEPSTAR",
+        "email": "riya@charusat.edu.in"
+    },
+    {
+        "name": "Yash Desai",
+        "enrollment": "25DCS064",
+        "department": "ECE",
+        "semester": 3,
+        "college": "DEPSTAR",
+        "email": "yash@charusat.edu.in"
+    },
+    {
+        "name": "Krish Joshi",
+        "enrollment": "25DCS065",
+        "department": "CSE",
+        "semester": 2,
+        "college": "DEPSTAR",
+        "email": "krish@charusat.edu.in"
+    },
+    {
+        "name": "Anaya Trivedi",
+        "enrollment": "25DCS066",
+        "department": "IT",
+        "semester": 2,
+        "college": "DEPSTAR",
+        "email": "anaya@charusat.edu.in"
+    },
+    {
+        "name": "Sara Mehta",
+        "enrollment": "25DCS074",
+        "department": "IT",
+        "semester": 4,
+        "college": "DEPSTAR",
+        "email": "sara@charusat.edu.in"
+    }
+]

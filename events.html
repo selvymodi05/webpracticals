@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Events - Student Hub Portal</title>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    /* ================================
+       PAGE BACKGROUND
+    ================================= */
+
+    body {
+        min-height: 100vh;
+
+        background: linear-gradient(
+            135deg,
+            #fffaf5,
+            #f5efff,
+            #fceef5,
+            #eef7ff
+        );
+
+        color: #34313d;
+    }
+
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 18px 50px;
+
+        background: rgba(255, 255, 255, 0.65);
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border-bottom: 1px solid rgba(120, 100, 140, 0.12);
+
+        box-shadow:
+            0 4px 20px rgba(70, 50, 90, 0.06);
+    }
+
+
+    header h1 {
+        font-size: 30px;
+
+        color: #5d5066;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    /* ================================
+       NAVIGATION
+    ================================= */
+
+    nav a {
+        color: #5d5066;
+
+        text-decoration: none;
+
+        margin-left: 20px;
+
+        font-size: 18px;
+
+        transition: 0.3s ease;
+    }
+
+
+    nav a:hover {
+        color: #a4779d;
+
+        text-decoration: underline;
+    }
+
+
+    /* ================================
+       MAIN CONTAINER
+    ================================= */
+
+    .container {
+        width: 80%;
+        max-width: 800px;
+
+        margin: 70px auto;
+
+        padding: 40px;
+
+        background: rgba(255, 255, 255, 0.72);
+
+        border: 1px solid rgba(255, 255, 255, 0.8);
+
+        border-radius: 22px;
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        box-shadow:
+            0 15px 40px rgba(92, 73, 110, 0.12),
+            0 3px 10px rgba(92, 73, 110, 0.05);
+    }
+
+
+    /* ================================
+       HEADING
+    ================================= */
+
+    .container h2 {
+        text-align: center;
+
+        font-size: 42px;
+
+        margin-bottom: 30px;
+
+        color: #51465b;
+    }
+
+
+    /* ================================
+       EVENT LIST
+    ================================= */
+
+    ul {
+        list-style: none;
+
+        padding: 0;
+    }
+
+
+    /* Individual Event */
+
+    li {
+        background: rgba(255, 255, 255, 0.65);
+
+        padding: 18px;
+
+        margin-bottom: 15px;
+
+        border-radius: 14px;
+
+        border: 1px solid rgba(225, 215, 230, 0.7);
+
+        font-size: 19px;
+
+        color: #5d5562;
+
+        box-shadow:
+            0 5px 15px rgba(92, 73, 110, 0.06);
+
+        /* Initial position */
+
+        transform: translateX(0);
+
+        /* Smooth sliding animation */
+
+        transition:
+            transform 0.4s ease,
+            background 0.4s ease,
+            box-shadow 0.4s ease;
+    }
+
+
+    /* ================================
+       SLIDING WINDOW EFFECT
+    ================================= */
+
+    li:hover {
+
+        background: rgba(248, 239, 250, 0.9);
+
+        /* Slide item to right */
+
+        transform: translateX(12px);
+
+        box-shadow:
+            0 10px 25px rgba(92, 73, 110, 0.12);
+    }
+
+
+    /* ================================
+       FOOTER
+    ================================= */
+
+    footer {
+        text-align: center;
+
+        padding: 20px;
+
+        background: rgba(255, 255, 255, 0.55);
+
+        color: #756a7d;
+
+        border-top: 1px solid rgba(120, 100, 140, 0.08);
+
+        margin-top: 50px;
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+
+    /* ================================
+       MOBILE RESPONSIVE
+    ================================= */
+
+    @media (max-width: 700px) {
+
+        header {
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            padding: 20px;
+        }
+
+
+        header h1 {
+            font-size: 25px;
+        }
+
+
+        nav {
+            text-align: center;
+        }
+
+
+        nav a {
+
+            display: inline-block;
+
+            font-size: 14px;
+
+            margin: 5px;
+        }
+
+
+        .container {
+
+            width: 92%;
+
+            padding: 25px;
+
+            margin: 40px auto;
+        }
+
+
+        .container h2 {
+
+            font-size: 32px;
+        }
+
+
+        li {
+
+            font-size: 17px;
+
+            padding: 15px;
+        }
+
+
+        /* Smaller slide on mobile */
+
+        li:hover {
+
+            transform: translateX(6px);
+        }
+
+    }
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>Student Hub Portal</h1>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="register.html">Register</a>
+
+            <a href="login.html">Login</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="events.html">Events</a>
+
+            <a href="attendance.html">Attendance</a>
+
+            <a href="result.html">Results</a>
+
+            <a href="faq.html">FAQ</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Events Section -->
+
+    <div class="container">
+
+        <h2>Upcoming Events</h2>
+
+        <ul>
+
+            <li>Hackathon - 20 July</li>
+
+            <li>Sports Week</li>
+
+            <li>Cultural Fest</li>
+
+            <li>Placement Workshop</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Student Hub Portal | All Rights Reserved</p>
+
+    </footer>
+
+</body>
+
+</html>

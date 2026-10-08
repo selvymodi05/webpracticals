@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Hub Portal</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+      
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family:
+                'Gill Sans',
+                'Gill Sans MT',
+                Calibri,
+                'Trebuchet MS',
+                sans-serif;
+        }
+
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #fffaf5,
+                #f5efff,
+                #fceef5,
+                #eef7ff
+            );
+
+            color: #34313d;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 15px 45px;
+
+            background: rgba(255, 255, 255, 0.70);
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            border-bottom:
+                1px solid rgba(120, 100, 140, 0.12);
+
+            box-shadow:
+                0 5px 25px rgba(70, 50, 90, 0.07);
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================== */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .logo img {
+
+            width: 58px;
+
+            height: 58px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+            background: white;
+
+            padding: 5px;
+
+            box-shadow:
+                0 5px 15px rgba(92, 73, 110, 0.12);
+
+            transition: 0.4s ease;
+        }
+
+
+        .logo img:hover {
+
+            transform: rotate(-5deg) scale(1.08);
+        }
+
+
+        .logo h1 {
+
+            font-size: 27px;
+
+            color: #5d5066;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================== */
+
+        nav {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        nav a {
+
+            color: #5d5066;
+
+            text-decoration: none;
+
+            margin-left: 18px;
+
+            font-size: 17px;
+
+            transition: 0.3s ease;
+
+            position: relative;
+        }
+
+
+        nav a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -5px;
+
+            width: 0;
+
+            height: 2px;
+
+            background: #b99ac4;
+
+            transition: 0.3s ease;
+        }
+
+
+        nav a:hover {
+
+            color: #a4779d;
+        }
+
+
+        nav a:hover::after {
+
+            width: 100%;
+        }
+
+
+        /* =========================================
+           HERO SECTION
+        ========================================== */
+
+        .hero {
+
+            width: 90%;
+
+            max-width: 1150px;
+
+            margin: 55px auto 35px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 430px;
+
+            border-radius: 28px;
+
+            background:
+                rgba(255, 255, 255, 0.70);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.85);
+
+            backdrop-filter: blur(15px);
+
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 50px rgba(92, 73, 110, 0.12);
+        }
+
+
+        /* =========================================
+           SLIDER
+        ========================================== */
+
+        .slider {
+
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 430px;
+
+            position: relative;
+        }
+
+
+        .slide {
+
+            position: absolute;
+
+            inset: 0;
+
+            padding: 70px 90px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            opacity: 0;
+
+            transform: translateX(40px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+
+            pointer-events: none;
+        }
+
+
+        .slide.active {
+
+            opacity: 1;
+
+            transform: translateX(0);
+
+            pointer-events: auto;
+        }
+
+
+        /* Different soft backgrounds */
+
+        .slide:nth-child(1) {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 250, 245, 0.9),
+                    rgba(245, 239, 255, 0.9)
+                );
+        }
+
+
+        .slide:nth-child(2) {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(245, 239, 255, 0.9),
+                    rgba(252, 238, 245, 0.9)
+                );
+        }
+
+
+        .slide:nth-child(3) {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(252, 238, 245, 0.9),
+                    rgba(238, 247, 255, 0.9)
+                );
+        }
+
+
+        .slide:nth-child(4) {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(238, 247, 255, 0.9),
+                    rgba(255, 250, 245, 0.9)
+                );
+        }
+
+
+        /* =========================================
+           SLIDE CONTENT
+        ========================================== */
+
+        .slide-content {
+
+            max-width: 720px;
+        }
+
+
+        .slide-content .small-title {
+
+            font-size: 16px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            color: #a4779d;
+
+            margin-bottom: 12px;
+
+            font-weight: bold;
+        }
+
+
+        .slide-content h2 {
+
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            color: #51465b;
+
+            margin-bottom: 20px;
+        }
+
+
+        .slide-content p {
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            color: #716775;
+
+            max-width: 680px;
+
+            margin-bottom: 28px;
+        }
+
+
+        /* =========================================
+           GET STARTED BUTTON
+        ========================================== */
+
+        .get-started {
+
+            display: inline-block;
+
+            padding: 14px 32px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #b99ac4,
+                    #d5a6b9
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 8px 20px rgba(170, 130, 165, 0.25);
+
+            transition: 0.3s ease;
+        }
+
+
+        .get-started:hover {
+
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #aa8ab7,
+                    #ca91a9
+                );
+
+            box-shadow:
+                0 12px 25px rgba(170, 130, 165, 0.30);
+        }
+
+
+        /* =========================================
+           SLIDER ARROWS
+        ========================================== */
+
+        .slider-button {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            color: #75627b;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 20;
+
+            box-shadow:
+                0 5px 15px rgba(92, 73, 110, 0.12);
+
+            transition: 0.3s ease;
+        }
+
+
+        .slider-button:hover {
+
+            background: #ffffff;
+
+            color: #a4779d;
+
+            transform:
+                translateY(-50%)
+                scale(1.08);
+        }
+
+
+        .prev {
+
+            left: 20px;
+        }
+
+
+        .next {
+
+            right: 20px;
+        }
+
+
+        /* =========================================
+           SLIDER DOTS
+        ========================================== */
+
+        .dots {
+
+            position: absolute;
+
+            bottom: 20px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: 8px;
+
+            z-index: 20;
+        }
+
+
+        .dot {
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: #d7cbdc;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .dot.active {
+
+            width: 25px;
+
+            border-radius: 10px;
+
+            background: #b99ac4;
+        }
+
+
+        /* =========================================
+           QUICK FEATURES
+        ========================================== */
+
+        .features {
+
+            width: 90%;
+
+            max-width: 1150px;
+
+            margin: 40px auto 70px;
+        }
+
+
+        .features h2 {
+
+            text-align: center;
+
+            font-size: 32px;
+
+            color: #51465b;
+
+            margin-bottom: 30px;
+        }
+
+
+        .feature-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .feature-card {
+
+            padding: 25px 20px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, 0.65);
+
+            border:
+                1px solid rgba(225, 215, 230, 0.7);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 7px 20px rgba(92, 73, 110, 0.07);
+
+            transition:
+                transform 0.4s ease,
+                background 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        /* Sliding Window Effect */
+
+        .feature-card:hover {
+
+            transform: translateY(-7px)
+                       translateX(7px);
+
+            background:
+                rgba(248, 239, 250, 0.9);
+
+            box-shadow:
+                0 14px 30px rgba(92, 73, 110, 0.12);
+        }
+
+
+        .feature-card .icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eadff0,
+                    #f3e2e8
+                );
+
+            font-size: 25px;
+        }
+
+
+        .feature-card h3 {
+
+            color: #51465b;
+
+            font-size: 20px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .feature-card p {
+
+            color: #756a7d;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 22px;
+
+            background:
+                rgba(255, 255, 255, 0.55);
+
+            color: #756a7d;
+
+            border-top:
+                1px solid rgba(120, 100, 140, 0.08);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+
+        footer p {
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================== */
+
+        @media (max-width: 1000px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 20px;
+            }
+
+
+            nav a {
+
+                display: inline-block;
+
+                margin: 5px 8px;
+
+                font-size: 15px;
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                padding: 18px 15px;
+            }
+
+
+            .logo h1 {
+
+                font-size: 23px;
+            }
+
+
+            .logo img {
+
+                width: 50px;
+
+                height: 50px;
+            }
+
+
+            nav a {
+
+                font-size: 13px;
+
+                margin: 4px;
+            }
+
+
+            .hero {
+
+                width: 94%;
+
+                min-height: 480px;
+
+                margin-top: 30px;
+            }
+
+
+            .slider {
+
+                min-height: 480px;
+            }
+
+
+            .slide {
+
+                padding:
+                    50px 40px 70px;
+
+                justify-content: center;
+            }
+
+
+            .slide-content h2 {
+
+                font-size: 34px;
+            }
+
+
+            .slide-content p {
+
+                font-size: 16px;
+
+                line-height: 1.6;
+            }
+
+
+            .slider-button {
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 20px;
+            }
+
+
+            .prev {
+
+                left: 10px;
+            }
+
+
+            .next {
+
+                right: 10px;
+            }
+
+
+            .features {
+
+                width: 94%;
+            }
+
+
+            .features h2 {
+
+                font-size: 28px;
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .feature-card:hover {
+
+                transform:
+                    translateY(-5px)
+                    translateX(4px);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header>
+
+       
+<div class="logo">
+    <img src="images/logo.jpeg.png" alt="Student Hub Portal Logo">
+    <h1>Student Hub Portal</h1>
+</div>
+
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="register.html">Register</a>
+
+            <a href="login.html">Login</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="events.html">Events</a>
+
+            <a href="attendance.html">Attendance</a>
+
+            <a href="result.html">Results</a>
+
+            <a href="faq.html">FAQ</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO SLIDER
+    ========================================== -->
+
+    <section class="hero">
+
+        <div class="slider">
+
+
+            <!-- SLIDE 1 -->
+
+            <div class="slide active">
+
+                <div class="slide-content">
+
+                    <div class="small-title">
+                        Welcome
+                    </div>
+
+                    <h2>
+                        Welcome to Student Hub Portal
+                    </h2>
+
+                    <p>
+                        Manage your academic life in one
+                        simple and elegant place. Access
+                        attendance, results, events,
+                        profile and other important
+                        student information easily.
+                    </p>
+
+                    <a
+                        href="register.html"
+                        class="get-started"
+                    >
+                        Get Started
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SLIDE 2 -->
+
+            <div class="slide">
+
+                <div class="slide-content">
+
+                    <div class="small-title">
+                        Academic Performance
+                    </div>
+
+                    <h2>
+                        Track Your Results
+                    </h2>
+
+                    <p>
+                        View semester-wise results,
+                        subject marks, grades, percentage
+                        and academic performance from
+                        your Student Hub dashboard.
+                    </p>
+
+                    <a
+                        href="result.html"
+                        class="get-started"
+                    >
+                        View Results
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SLIDE 3 -->
+
+            <div class="slide">
+
+                <div class="slide-content">
+
+                    <div class="small-title">
+                        Attendance
+                    </div>
+
+                    <h2>
+                        Keep Your Attendance Updated
+                    </h2>
+
+                    <p>
+                        Quickly check your attendance
+                        records and stay aware of your
+                        academic attendance throughout
+                        the semester.
+                    </p>
+
+                    <a
+                        href="attendance.html"
+                        class="get-started"
+                    >
+                        Check Attendance
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SLIDE 4 -->
+
+            <div class="slide">
+
+                <div class="slide-content">
+
+                    <div class="small-title">
+                        Campus Life
+                    </div>
+
+                    <h2>
+                        Discover Student Events
+                    </h2>
+
+                    <p>
+                        Stay updated with upcoming
+                        college events, activities and
+                        important student information.
+                    </p>
+
+                    <a
+                        href="events.html"
+                        class="get-started"
+                    >
+                        Explore Events
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PREVIOUS BUTTON -->
+
+            <button
+                class="slider-button prev"
+                onclick="changeSlide(-1)"
+            >
+                &#10094;
+            </button>
+
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                class="slider-button next"
+                onclick="changeSlide(1)"
+            >
+                &#10095;
+            </button>
+
+
+
+            <!-- SLIDER DOTS -->
+
+            <div class="dots">
+
+                <button
+                    class="dot active"
+                    onclick="currentSlide(0)"
+                ></button>
+
+                <button
+                    class="dot"
+                    onclick="currentSlide(1)"
+                ></button>
+
+                <button
+                    class="dot"
+                    onclick="currentSlide(2)"
+                ></button>
+
+                <button
+                    class="dot"
+                    onclick="currentSlide(3)"
+                ></button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         QUICK ACCESS
+    ========================================== -->
+
+    <section class="features">
+
+        <h2>
+            Quick Access
+        </h2>
+
+
+        <div class="feature-grid">
+
+
+            <!-- ATTENDANCE -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📊
+                </div>
+
+                <h3>
+                    Attendance
+                </h3>
+
+                <p>
+                    Check your attendance
+                    and stay updated.
+                </p>
+
+            </div>
+
+
+
+            <!-- RESULTS -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    🎓
+                </div>
+
+                <h3>
+                    Results
+                </h3>
+
+                <p>
+                    View your semester
+                    academic results.
+                </p>
+
+            </div>
+
+
+
+            <!-- EVENTS -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📅
+                </div>
+
+                <h3>
+                    Events
+                </h3>
+
+                <p>
+                    Discover upcoming
+                    college events.
+                </p>
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    👤
+                </div>
+
+                <h3>
+                    Profile
+                </h3>
+
+                <p>
+                    Manage your student
+                    profile information.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Student Hub Portal |
+            All Rights Reserved
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         SLIDER JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        let slideIndex = 0;
+
+        const slides =
+            document.querySelectorAll(".slide");
+
+        const dots =
+            document.querySelectorAll(".dot");
+
+
+        /* SHOW SLIDE */
+
+        function showSlide(index) {
+
+            if (index >= slides.length) {
+
+                slideIndex = 0;
+
+            }
+
+            else if (index < 0) {
+
+                slideIndex = slides.length - 1;
+
+            }
+
+            else {
+
+                slideIndex = index;
+
+            }
+
+
+            /* Remove active */
+
+            slides.forEach(function(slide) {
+
+                slide.classList.remove("active");
+
+            });
+
+
+            dots.forEach(function(dot) {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            /* Add active */
+
+            slides[slideIndex]
+                .classList.add("active");
+
+            dots[slideIndex]
+                .classList.add("active");
+
+        }
+
+
+        /* NEXT / PREVIOUS */
+
+        function changeSlide(direction) {
+
+            showSlide(
+                slideIndex + direction
+            );
+
+        }
+
+
+        /* DOT */
+
+        function currentSlide(index) {
+
+            showSlide(index);
+
+        }
+
+
+        /* AUTOMATIC SLIDER */
+
+        setInterval(function() {
+
+            changeSlide(1);
+
+        }, 5000);
+
+    </script>
+
+
+</body>
+
+</html>

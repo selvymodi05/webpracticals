@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Profile - Student Hub Portal</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #fffaf5,
+                #f5efff,
+                #fceef5,
+                #eef7ff
+            );
+
+            color: #34313d;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 40px;
+
+            background: rgba(255,255,255,0.70);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #e5dce8;
+
+            box-shadow:
+                0 5px 20px rgba(92,73,110,0.08);
+        }
+
+        header h1 {
+            font-size: 30px;
+            color: #5d5066;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #5d5066;
+            text-decoration: none;
+            margin: 5px 10px;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a4779d;
+            transform: translateX(4px);
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1100px;
+
+            margin: 50px auto;
+
+            padding: 35px;
+
+            background: rgba(255,255,255,0.75);
+
+            border: 1px solid white;
+
+            border-radius: 22px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 15px 40px rgba(92,73,110,0.12);
+        }
+
+        .container h2 {
+            text-align: center;
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+
+            color: #51465b;
+        }
+
+        #message {
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            color: #756a7d;
+
+            font-size: 17px;
+        }
+
+        .controls {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 25px;
+        }
+
+        input,
+        select,
+        button {
+            padding: 12px;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        input,
+        select {
+            border: 1px solid #e3dce8;
+
+            background: white;
+
+            color: #51465b;
+
+            outline: none;
+        }
+
+        input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        select {
+            min-width: 170px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #c5a8c7;
+
+            box-shadow:
+                0 0 0 3px rgba(197,168,199,0.15);
+        }
+
+        button {
+            border: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #b99ac4,
+                    #d5a6b9
+                );
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #aa8ab7,
+                    #ca91a9
+                );
+        }
+
+        button:disabled {
+            opacity: 0.45;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+        .table-container {
+            overflow-x: auto;
+
+            border-radius: 14px;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 750px;
+
+            background: rgba(255,255,255,0.55);
+
+            border-radius: 14px;
+        }
+
+        th {
+            padding: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9dded,
+                    #f1e3ea
+                );
+
+            color: #51465b;
+
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+
+            color: #514a58;
+
+            border-bottom: 1px solid #ebe4ee;
+        }
+
+        /* SLIDING WINDOW EFFECT */
+
+        tbody tr {
+            transition:
+                transform 0.35s ease,
+                background 0.35s ease;
+        }
+
+        tbody tr:hover {
+            background: #f8effa;
+
+            transform: translateX(10px);
+        }
+
+        td:first-child {
+            font-weight: bold;
+
+            color: #66556d;
+        }
+
+        .pagination {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        #pageNumber {
+            font-weight: bold;
+
+            color: #62576b;
+        }
+
+        footer {
+            text-align: center;
+
+            padding: 20px;
+
+            margin-top: 50px;
+
+            background: rgba(255,255,255,0.55);
+
+            color: #756a7d;
+
+            border-top: 1px solid #e5dce8;
+        }
+
+        @media(max-width:700px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .container {
+                width: 94%;
+
+                padding: 20px;
+            }
+
+            .container h2 {
+                font-size: 30px;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            input,
+            select,
+            button {
+                width: 100%;
+            }
+
+            tbody tr:hover {
+                transform: translateX(4px);
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>Student Hub Portal</h1>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="events.html">Events</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="result.html">Results</a>
+            <a href="faq.html">FAQ</a>
+
+        </nav>
+
+    </header>
+
+
+    <div class="container">
+
+        <h2>Student Profiles</h2>
+
+        <p id="message">
+            Loading student profiles...
+        </p>
+
+
+        <div class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search student..."
+            >
+
+
+            <select id="departmentFilter">
+
+                <option value="all">
+                    All Departments
+                </option>
+
+                <option value="CSE">
+                    CSE
+                </option>
+
+                <option value="IT">
+                    IT
+                </option>
+
+                <option value="ECE">
+                    ECE
+                </option>
+
+            </select>
+
+
+            <select id="sortSelect">
+
+                <option value="default">
+                    Sort By
+                </option>
+
+                <option value="nameAsc">
+                    Name A-Z
+                </option>
+
+                <option value="nameDesc">
+                    Name Z-A
+                </option>
+
+                <option value="semesterAsc">
+                    Semester Low-High
+                </option>
+
+                <option value="semesterDesc">
+                    Semester High-Low
+                </option>
+
+            </select>
+
+
+            <button id="resetButton">
+                Reset
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <th>Enrollment</th>
+
+                        <th>Department</th>
+
+                        <th>Semester</th>
+
+                        <th>College</th>
+
+                        <th>Email</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="profileTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="pagination">
+
+            <button id="previousButton">
+                Previous
+            </button>
+
+            <span id="pageNumber">
+                Page 1
+            </span>
+
+            <button id="nextButton">
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 Student Hub Portal |
+            All Rights Reserved
+        </p>
+
+    </footer>
+
+
+    <!-- ONLY ONE JAVASCRIPT FILE -->
+
+    <script src="profile.js"></script>
+    <script src = "profile.json"></script>
+
+</body>
+
+</html>
